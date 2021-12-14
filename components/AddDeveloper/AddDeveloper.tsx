@@ -66,7 +66,9 @@ const AddDeveloper = () => {
           placeholder='Skills'
         />
       </div>
-      <button onClick={addDeveloper}>Add</button>
+      <button className={styles.btnAction} onClick={addDeveloper}>
+        Add
+      </button>
     </div>
   );
 };

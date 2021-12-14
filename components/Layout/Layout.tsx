@@ -10,13 +10,14 @@ const Layout = ({ children }) => {
         {children}
         <div className={styles.content}>
           <p>
-            Basic in memory CRUD application built using React, NextJS, Apollo
-            and GraphQL
+            Basic server side in memory CRUD application built using React.js,
+            Next.js, Apollo and GraphQL deployed to Vercel.com
           </p>
         </div>
         <footer className={styles.footer}>
           <p>
-            React, NextJS, GraphQL, Apollo App. View the source code on&nbsp;
+            React.js, Next.js, Apollo & GraphQL. <br />
+            View the source code on&nbsp;
             <a
               href='https://github.com/joeburton/nextjs-apollo-app'
               target='_blank'

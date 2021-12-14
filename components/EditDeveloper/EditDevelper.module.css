@@ -1,6 +1,7 @@
 .editDeveloper {
   display: flex;
   flex-direction: row;
+  min-height: 30px;
 }
 
 .editDeveloper input {
@@ -19,4 +20,13 @@
   margin-right: 8px;
   width: 100%;
   flex: 1 1 auto;
+}
+
+.btnAction {
+  background-color: #198754;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  color: #fff;
+  padding: 5px;
+  width: 60px;
 }

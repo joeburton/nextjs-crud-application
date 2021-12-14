@@ -66,7 +66,9 @@ const EditDeveloper = ({ id, name, skills, onSuccess }) => {
           onChange={(e) => setNewSkills(e.target.value)}
         />
       </div>
-      <button onClick={updateDeveloper}>Update</button>
+      <button className={styles.btnAction} onClick={updateDeveloper}>
+        Update
+      </button>
     </div>
   );
 };

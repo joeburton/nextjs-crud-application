@@ -3,10 +3,12 @@
   flex-direction: row;
   margin: 0 0 8px 0;
   width: 100%;
+  padding: 8px;
 }
 
 .addDeveloper button {
   margin-left: auto;
+  width: 60px;
 }
 
 .formItem {
@@ -17,4 +19,12 @@
   margin-right: 8px;
   width: 100%;
   flex: 1 1 auto;
+}
+
+.btnAction {
+  background-color: #198754;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  color: #fff;
+  padding: 5px;
 }

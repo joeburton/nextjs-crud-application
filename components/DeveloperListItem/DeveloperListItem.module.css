@@ -1,12 +1,59 @@
 .listItem {
+  border-bottom: 1px solid #fcfcfc;
+  background-color: rgb(247, 225, 156);
+  padding: 8px;
+}
+
+.listItem:nth-child(odd) {
+  background-color: #cfcfa3;
+}
+
+.detailsContainer {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  min-height: 30px;
+}
+
+.details {
+  font-size: 15px;
+  max-width: 500px;
 }
 
 .controls {
   margin-left: auto;
 }
 
-.controls button:nth-child(1) {
-  margin: 0 4px 0 0;
+.controls button {
+  width: 60px;
+}
+
+.controls button:nth-child(2) {
+  margin: 0 0 0 4px;
+}
+
+.btnDanger {
+  background-color: #bb2d3b;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  color: #fff;
+  padding: 5px;
+}
+
+.btnPrimary {
+  background-color: #0d6efd;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  color: #fff;
+  padding: 5px;
+}
+
+@media only screen and (max-width: 768px) {
+  .controls {
+    width: 70px;
+    text-align: right;
+  }
+  .controls button:nth-child(1) {
+    margin: 0 0 4px 0;
+  }
 }

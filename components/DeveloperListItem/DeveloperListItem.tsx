@@ -50,7 +50,7 @@ const DeveloperListItem = ({ id, name, skills }) => {
   };
 
   return (
-    <li>
+    <li className={styles.listItem}>
       {updateActive && (
         <EditDeveloper
           id={id}
@@ -60,13 +60,23 @@ const DeveloperListItem = ({ id, name, skills }) => {
         />
       )}
       {!updateActive && (
-        <div className={styles.listItem}>
+        <div className={styles.detailsContainer}>
           <div className={styles.details}>
-            Developer name: {name}, Developer Skills: {skills}
+            Developer name: {name}, Skills: {skills}
           </div>
           <div className={styles.controls}>
-            <button onClick={deleteDeveloperFromDatabase}>Delete</button>
-            <button onClick={() => setUpdateActive(true)}>Edit</button>
+            <button
+              className={styles.btnPrimary}
+              onClick={() => setUpdateActive(true)}
+            >
+              Edit
+            </button>
+            <button
+              className={styles.btnDanger}
+              onClick={deleteDeveloperFromDatabase}
+            >
+              Delete
+            </button>
           </div>
         </div>
       )}
