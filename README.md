@@ -1,8 +1,6 @@
 # NextJS Apollo App
 
-This is a first stab at setting up GraphQL and Apollo with NextJS pages and pages/api, it's not a work of art.
-
-### https://github.com/joeburton?tab=repositories
+Basic in memory CRUD application built using React, NextJS, Appollo and GraphQL, it's not a work of art.
 
 ---
 
