@@ -11,7 +11,7 @@ This is a first stab at setting up GraphQL and Apollo with NextJS pages and page
 ### https://studio.apollographql.com/sandbox/explorer
 
 ```
-query Query {
+query GetDevelopers {
   developers {
     id
     name
