@@ -1,0 +1,12 @@
+.listItem {
+  display: flex;
+  justify-content: space-between;
+}
+
+.controls {
+  margin-left: auto;
+}
+
+.controls button:nth-child(1) {
+  margin: 0 4px 0 0;
+}

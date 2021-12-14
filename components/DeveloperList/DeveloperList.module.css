@@ -1,0 +1,17 @@
+.developerList {
+  list-style: none;
+  margin: 0 0 4px 0;
+  padding: 0;
+  color: darkslategray;
+}
+
+.developerList li {
+  padding: 4px;
+}
+
+.developerList li {
+  background-color: rgb(247, 225, 156);
+}
+.developerList li:nth-child(odd) {
+  background-color: #cfcfa3;
+}

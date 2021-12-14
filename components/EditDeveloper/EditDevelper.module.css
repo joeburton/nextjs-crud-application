@@ -1,0 +1,22 @@
+.editDeveloper {
+  display: flex;
+  flex-direction: row;
+}
+
+.editDeveloper input {
+  margin-right: 8px;
+}
+
+.editDeveloper button {
+  margin-left: auto;
+}
+
+.formItem {
+  display: flex;
+}
+
+.formItem input {
+  margin-right: 8px;
+  width: 100%;
+  flex: 1 1 auto;
+}

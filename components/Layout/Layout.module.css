@@ -1,0 +1,31 @@
+.main {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.mainContent {
+  margin: 0 8px;
+}
+
+.mainContent h1 {
+  color: darkslategrey;
+  font-size: 20px;
+  font-weight: normal;
+}
+
+.footer p {
+  display: flex;
+  text-align: center;
+  color: darkgrey;
+  font-size: 12px;
+}
+
+.footer a {
+  text-decoration: underline;
+}
+
+.content p {
+  text-align: left;
+  color: darkslategray;
+  font-size: 14px;
+}
