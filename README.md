@@ -2,6 +2,10 @@
 
 Basic in memory CRUD application built using React, NextJS, Appollo and GraphQL, it's not a work of art.
 
+
+<img width="858" alt="developer-details" src="https://user-images.githubusercontent.com/1738659/146010984-6c7fb191-8fb5-486b-8fb4-cf9097363122.png">
+
+
 ---
 
 ### **_GraphQL Queries_**
