@@ -1,4 +1,4 @@
-# NextJS Apollo App
+## Developer Details CRUD Application
 
 Basic in memory CRUD application built using React, NextJS, Appollo and GraphQL, it's not a work of art.
 
