@@ -25,14 +25,14 @@ const UPDATE_DEVELOPER = gql`
 const EditDeveloper = ({ id, name, skills, onSuccess }) => {
   const [editDeveloper] = useMutation(UPDATE_DEVELOPER);
 
-  const [newName, setNewName] = useState<string>();
-  const [newSkills, setNewSkills] = useState<string>();
+  const [newName, setNewName] = useState<string>(name);
+  const [newSkills, setNewSkills] = useState<string>(skills);
 
   const updateDeveloper = () => {
     const updatedDeveloperDetails = {
       id,
-      name: newName ?? name,
-      skills: newSkills ?? skills,
+      name: newName,
+      skills: newSkills,
     };
     editDeveloper({
       variables: updatedDeveloperDetails,
@@ -58,17 +58,12 @@ const EditDeveloper = ({ id, name, skills, onSuccess }) => {
   return (
     <div className={styles.editDeveloper}>
       <div className={styles.formItem}>
-        <input
-          value={newName}
-          onChange={(e) => setNewName(e.target.value)}
-          placeholder={name}
-        />
+        <input value={newName} onChange={(e) => setNewName(e.target.value)} />
       </div>
       <div className={styles.formItem}>
         <input
           value={newSkills}
           onChange={(e) => setNewSkills(e.target.value)}
-          placeholder={skills}
         />
       </div>
       <button onClick={updateDeveloper}>Update</button>
