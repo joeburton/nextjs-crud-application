@@ -10,7 +10,7 @@ const Layout = ({ children }) => {
         {children}
         <div className={styles.content}>
           <p>
-            Basic in memory CRUD application built using React, NextJS, Appollo
+            Basic in memory CRUD application built using React, NextJS, Apollo
             and GraphQL
           </p>
         </div>
