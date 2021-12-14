@@ -19,7 +19,7 @@ const Layout = ({ children }) => {
             React.js, Next.js, Apollo & GraphQL. <br />
             View the source code on&nbsp;
             <a
-              href='https://github.com/joeburton/nextjs-apollo-app'
+              href='https://github.com/joeburton/nextjs-crud-application'
               target='_blank'
             >
               GitHub
