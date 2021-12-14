@@ -32,7 +32,7 @@ mutation AddDeveloper($id: String, $name: String, $skills: String) {
 }
 
 // variables
-{ "id": '234234-234234', "name": "James Brown", "skills": "Jazz"}
+{ "id": 'fd66e955-10e9-4762-8847-14fbdc80e38a', "name": "James Brown", "skills": "Jazz"}
 ```
 
 ```
@@ -45,7 +45,7 @@ mutation EditDeveloper($id: String, $name: String, $skills: String) {
 }
 
 // variables
-{ "id": '234234-234234', "name": "James Brown", "skills": "Jazz"}
+{ "id": 'fd66e955-10e9-4762-8847-14fbdc80e38a', "name": "James Brown", "skills": "Jazz"}
 ```
 
 ```
@@ -58,5 +58,5 @@ mutation DeleteDeveloper($id: String) {
 }
 
 // variables
-{ "id": 3}
+{ "id": "fd66e955-10e9-4762-8847-14fbdc80e38a"}
 ```
