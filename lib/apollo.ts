@@ -17,8 +17,8 @@ const cache = new InMemoryCache({
 
 const HOST =
   process.env.NODE_ENV === 'development'
-    ? process.env.NEXT_PUBLIC_HOST
-    : process.env.HOST;
+    ? process.env.NEXT_PUBLIC_APP_DEV
+    : process.env.NEXT_PUBLIC_APP_PROD;
 
 console.log(HOST);
 
