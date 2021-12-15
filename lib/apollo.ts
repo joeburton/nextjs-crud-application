@@ -15,8 +15,15 @@ const cache = new InMemoryCache({
   },
 });
 
+const HOST =
+  process.env.NODE_ENV === 'development'
+    ? process.env.NEXT_PUBLIC_HOST
+    : process.env.HOST;
+
+console.log(HOST);
+
 const apolloClient = new ApolloClient({
-  uri: 'http://localhost:3000/api/graphql',
+  uri: `${HOST}/api/graphql`,
   cache: cache,
 });
 
