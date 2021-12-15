@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1639588049686" clover="3.2.0">
+  <project timestamp="1639588049686" name="All files">
+    <metrics statements="6" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1" elements="8" coveredelements="3" complexity="0" loc="6" ncloc="6" packages="2" files="2" classes="2"/>
+    <package name="AddDeveloper">
+      <metrics statements="4" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+      <file name="AddDeveloper.dump.tsx" path="/Users/joeburto1/Documents/Sites/nextjs-crud-application/components/AddDeveloper/AddDeveloper.dump.tsx">
+        <metrics statements="4" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="5" count="0" type="stmt"/>
+        <line num="6" count="0" type="stmt"/>
+        <line num="9" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="TestComponent">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="TestComponent.tsx" path="/Users/joeburto1/Documents/Sites/nextjs-crud-application/components/TestComponent/TestComponent.tsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>
