@@ -5,7 +5,7 @@ import { DeveloperListItem } from '..';
 import styles from './DeveloperList.module.css';
 
 const GET_DEVELOPERS = gql`
-  query {
+  query GetDevelopers {
     developers {
       id
       name
@@ -17,11 +17,12 @@ const GET_DEVELOPERS = gql`
 const DeveloperList = () => {
   const { loading, error, data } = useQuery(GET_DEVELOPERS);
 
+  console.log(loading, error, data);
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error :(</p>;
 
   return (
-    <ul className={styles.developerList}>
+    <ul className={styles.developerList} data-testid='developer-list'>
       {data.developers.map((developer, i) => {
         return <DeveloperListItem key={i} {...developer} />;
       })}

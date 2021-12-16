@@ -50,7 +50,7 @@ const DeveloperListItem = ({ id, name, skills }) => {
   };
 
   return (
-    <li className={styles.listItem}>
+    <li className={styles.listItem} data-testid='developer-list-item'>
       {updateActive && (
         <EditDeveloper
           id={id}

@@ -6,7 +6,7 @@ import { useMutation, gql } from '@apollo/client';
 import styles from './AddDeveloper.module.css';
 
 const ADD_DEVELOPER = gql`
-  mutation addDeveloper($id: String, $name: String, $skills: String) {
+  mutation AddDeveloper($id: String, $name: String, $skills: String) {
     addDeveloper(id: $id, name: $name, skills: $skills) {
       id
       name
@@ -39,7 +39,6 @@ const AddDeveloper = () => {
       variables: developer,
       update: (cache, mutationResult) => {
         let { developers } = cache.readQuery({ query: GET_DEVELOPERS });
-        console.log(mutationResult);
         cache.writeQuery({
           query: GET_DEVELOPERS,
           data: {
@@ -57,6 +56,7 @@ const AddDeveloper = () => {
           value={name}
           onChange={(e) => setName(e.target.value)}
           placeholder='Name'
+          data-testid='name'
         />
       </div>
       <div className={styles.formItem}>
@@ -64,9 +64,14 @@ const AddDeveloper = () => {
           value={skills}
           onChange={(e) => setSkills(e.target.value)}
           placeholder='Skills'
+          data-testid='skills'
         />
       </div>
-      <button className={styles.btnAction} onClick={addDeveloper}>
+      <button
+        className={styles.btnAction}
+        onClick={addDeveloper}
+        data-testid='add-developer'
+      >
         Add
       </button>
     </div>
