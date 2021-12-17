@@ -1,29 +1,11 @@
 import React from 'react';
 import { useState } from 'react';
 import { v4 as uuid } from 'uuid';
-import { useMutation, gql } from '@apollo/client';
+import { useMutation } from '@apollo/client';
+import { ADD_DEVELOPER } from '../../lib/apollo/mutations';
+import { GET_DEVELOPERS } from '../../lib/apollo/queries';
 
 import styles from './AddDeveloper.module.css';
-
-const ADD_DEVELOPER = gql`
-  mutation addDeveloper($id: String, $name: String, $skills: String) {
-    addDeveloper(id: $id, name: $name, skills: $skills) {
-      id
-      name
-      skills
-    }
-  }
-`;
-
-const GET_DEVELOPERS = gql`
-  query GetDevelopers {
-    developers {
-      id
-      name
-      skills
-    }
-  }
-`;
 
 const AddDeveloper = () => {
   const [name, setName] = useState<string>('');
@@ -39,7 +21,6 @@ const AddDeveloper = () => {
       variables: developer,
       update: (cache, mutationResult) => {
         let { developers } = cache.readQuery({ query: GET_DEVELOPERS });
-        console.log(mutationResult);
         cache.writeQuery({
           query: GET_DEVELOPERS,
           data: {
@@ -57,6 +38,7 @@ const AddDeveloper = () => {
           value={name}
           onChange={(e) => setName(e.target.value)}
           placeholder='Name'
+          data-testid='name'
         />
       </div>
       <div className={styles.formItem}>
@@ -64,9 +46,14 @@ const AddDeveloper = () => {
           value={skills}
           onChange={(e) => setSkills(e.target.value)}
           placeholder='Skills'
+          data-testid='skills'
         />
       </div>
-      <button className={styles.btnAction} onClick={addDeveloper}>
+      <button
+        className={styles.btnAction}
+        onClick={addDeveloper}
+        data-testid='add-developer'
+      >
         Add
       </button>
     </div>

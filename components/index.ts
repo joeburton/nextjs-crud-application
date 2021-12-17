@@ -1,4 +1,3 @@
-export { DevelopersData } from './DevelopersData';
 export { DeveloperList } from './DeveloperList';
 export { DeveloperListItem } from './DeveloperListItem';
 export { Layout } from './Layout';

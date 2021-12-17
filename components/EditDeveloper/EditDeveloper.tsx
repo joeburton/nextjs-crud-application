@@ -1,40 +1,22 @@
 import { useState } from 'react';
-import { useMutation, gql } from '@apollo/client';
+import { useMutation } from '@apollo/client';
 import styles from './EditDevelper.module.css';
-
-const GET_DEVELOPERS = gql`
-  query GetDevelopers {
-    developers {
-      id
-      name
-      skills
-    }
-  }
-`;
-
-const UPDATE_DEVELOPER = gql`
-  mutation ($id: String, $name: String, $skills: String) {
-    editDeveloper(id: $id, name: $name, skills: $skills) {
-      id
-      name
-      skills
-    }
-  }
-`;
+import { UPDATE_DEVELOPER } from '../../lib/apollo/mutations';
+import { GET_DEVELOPERS } from '../../lib/apollo/queries';
 
 const EditDeveloper = ({ id, name, skills, onSuccess }) => {
-  const [editDeveloper] = useMutation(UPDATE_DEVELOPER);
+  const [updateDeveloper] = useMutation(UPDATE_DEVELOPER);
 
   const [newName, setNewName] = useState<string>(name);
   const [newSkills, setNewSkills] = useState<string>(skills);
 
-  const updateDeveloper = () => {
+  const editDeveloper = () => {
     const updatedDeveloperDetails = {
       id,
       name: newName,
       skills: newSkills,
     };
-    editDeveloper({
+    updateDeveloper({
       variables: updatedDeveloperDetails,
       update: (cache, mutationResult) => {
         let { developers } = cache.readQuery({ query: GET_DEVELOPERS });
@@ -66,7 +48,7 @@ const EditDeveloper = ({ id, name, skills, onSuccess }) => {
           onChange={(e) => setNewSkills(e.target.value)}
         />
       </div>
-      <button className={styles.btnAction} onClick={updateDeveloper}>
+      <button className={styles.btnAction} onClick={editDeveloper}>
         Update
       </button>
     </div>

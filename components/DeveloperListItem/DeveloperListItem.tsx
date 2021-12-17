@@ -1,28 +1,10 @@
 import { useState } from 'react';
-import { useMutation, gql } from '@apollo/client';
+import { useMutation } from '@apollo/client';
 import { EditDeveloper } from '../EditDeveloper';
+import { GET_DEVELOPERS } from '../../lib/apollo/queries';
+import { DELETE_DEVELOPER } from '../../lib/apollo/mutations';
 
 import styles from './DeveloperListItem.module.css';
-
-const DELETE_DEVELOPER = gql`
-  mutation ($id: String) {
-    deleteDeveloper(id: $id) {
-      id
-      name
-      skills
-    }
-  }
-`;
-
-const GET_DEVELOPERS = gql`
-  query GetDevelopers {
-    developers {
-      id
-      name
-      skills
-    }
-  }
-`;
 
 const DeveloperListItem = ({ id, name, skills }) => {
   const [updateActive, setUpdateActive] = useState(false);
@@ -50,7 +32,7 @@ const DeveloperListItem = ({ id, name, skills }) => {
   };
 
   return (
-    <li className={styles.listItem}>
+    <li className={styles.listItem} data-testid='developer-list-item'>
       {updateActive && (
         <EditDeveloper
           id={id}

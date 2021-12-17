@@ -1,18 +1,8 @@
-import { useQuery, gql } from '@apollo/client';
-
+import { useQuery } from '@apollo/client';
 import { DeveloperListItem } from '..';
+import { GET_DEVELOPERS } from '../../lib/apollo/queries';
 
 import styles from './DeveloperList.module.css';
-
-const GET_DEVELOPERS = gql`
-  query {
-    developers {
-      id
-      name
-      skills
-    }
-  }
-`;
 
 const DeveloperList = () => {
   const { loading, error, data } = useQuery(GET_DEVELOPERS);
@@ -21,7 +11,7 @@ const DeveloperList = () => {
   if (error) return <p>Error :(</p>;
 
   return (
-    <ul className={styles.developerList}>
+    <ul className={styles.developerList} data-testid='developer-list'>
       {data.developers.map((developer, i) => {
         return <DeveloperListItem key={i} {...developer} />;
       })}
