@@ -4,7 +4,7 @@ import { ApolloProvider } from '@apollo/client';
 import { render, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import apolloClient from '../../lib/apollo';
+import apolloClient from '../../lib/apollo/apollo';
 import { AddDeveloper, DeveloperList } from '../';
 
 describe('AddDeveloper', () => {
@@ -52,11 +52,11 @@ describe('AddDeveloper', () => {
     );
 
     await waitFor(() =>
-      expect(getAllByTestId('developer-list-item').length).toEqual(2)
+      expect(getAllByTestId('developer-list-item').length).toEqual(3)
     );
 
     // @todo look at using aria / getByRole getAllByRole accessibility.
     // @todo look at (within)
-    debug();
+    // debug();
   });
 });

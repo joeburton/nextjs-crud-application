@@ -29,9 +29,6 @@ switch (process.env.NODE_ENV) {
     break;
 }
 
-console.log(host);
-
-// http://localhost/api/graphql
 const apolloClient = new ApolloClient({
   uri: `${host}/api/graphql`,
   cache: cache,
