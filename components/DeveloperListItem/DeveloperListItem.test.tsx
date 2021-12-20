@@ -1,7 +1,5 @@
-import React from 'react';
-
 import { ApolloProvider } from '@apollo/client';
-import { getAllByTestId, render, waitFor } from '@testing-library/react';
+import { render, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import apolloClient from '../../lib/apollo/apollo';
@@ -24,13 +22,11 @@ describe('DeveloperListItem', () => {
         <DeveloperListItem {...developer} />
       </ApolloProvider>
     );
-
     await waitFor(() =>
       expect(getByTestId('developer-list-item')).toBeInTheDocument()
     );
 
-    const listItem = getByTestId('developer-list-item');
-    expect(listItem).toHaveTextContent('Jim Bob');
+    expect(getByTestId('developer-list-item')).toHaveTextContent('Jim Bob');
   });
 
   it('should display the EditDeveloper component when requested', () => {

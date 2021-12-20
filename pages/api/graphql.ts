@@ -33,7 +33,7 @@ const typeDefs = gql`
   }
 
   type Mutation {
-    editDeveloper(id: String, name: String, skills: String): [Developer]
+    updateDeveloper(id: String, name: String, skills: String): [Developer]
     addDeveloper(id: String, name: String, skills: String): [Developer]
     deleteDeveloper(id: String): [Developer]
   }
@@ -58,7 +58,7 @@ const resolvers = {
       console.log(developers);
       return developers;
     },
-    editDeveloper: (_root, args) => {
+    updateDeveloper: (_root, args) => {
       const updatedDevelopers = developers.map((developer) =>
         developer.id === args.id ? args : developer
       );

@@ -22,7 +22,7 @@ const DELETE_DEVELOPER = gql`
 
 const UPDATE_DEVELOPER = gql`
   mutation UpdateDeveloper($id: String, $name: String, $skills: String) {
-    editDeveloper(id: $id, name: $name, skills: $skills) {
+    updateDeveloper(id: $id, name: $name, skills: $skills) {
       id
       name
       skills

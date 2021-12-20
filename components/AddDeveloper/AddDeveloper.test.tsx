@@ -9,34 +9,30 @@ import { AddDeveloper, DeveloperList } from '../';
 
 describe('AddDeveloper', () => {
   it('should render the AddDeveloper Component', async () => {
-    const { getByTestId } = render(
+    const { getByTestId, findByTestId } = render(
       <ApolloProvider client={apolloClient}>
         <AddDeveloper />
       </ApolloProvider>
     );
 
-    await waitFor(() =>
-      expect(getByTestId('add-developer')).toBeInTheDocument()
-    );
+    await findByTestId('add-developer');
 
-    const addBtn = getByTestId('add-developer');
+    const addBtn = getByTestId('add-developer-btn');
 
     expect(addBtn).toHaveTextContent('Add');
   });
 
   it('should add a new developer', async () => {
-    const { getByTestId, getAllByTestId } = render(
+    const { getByTestId, getAllByTestId, findByTestId } = render(
       <ApolloProvider client={apolloClient}>
         <AddDeveloper />
         <DeveloperList />
       </ApolloProvider>
     );
 
-    await waitFor(() =>
-      expect(getByTestId('add-developer')).toBeInTheDocument()
-    );
+    await findByTestId('add-developer');
 
-    const addBtn = getByTestId('add-developer');
+    const addBtn = getByTestId('add-developer-btn');
     const skillsInput = getByTestId('skills');
     const nameInput = getByTestId('name');
 
@@ -47,9 +43,7 @@ describe('AddDeveloper', () => {
 
     userEvent.click(addBtn);
 
-    await waitFor(() =>
-      expect(getByTestId('developer-list')).toBeInTheDocument()
-    );
+    await findByTestId('developer-list');
 
     await waitFor(() =>
       expect(getAllByTestId('developer-list-item')).toHaveLength(3)
@@ -58,8 +52,5 @@ describe('AddDeveloper', () => {
     expect(getAllByTestId('developer-list-item')[2]).toHaveTextContent(
       'James Brown'
     );
-
-    // @todo look at using aria / getByRole getAllByRole accessibility.
-    // @todo look at (within)
   });
 });

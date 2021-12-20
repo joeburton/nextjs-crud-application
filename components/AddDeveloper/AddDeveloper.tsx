@@ -19,7 +19,7 @@ const AddDeveloper = () => {
 
     addTodo({
       variables: developer,
-      update: (cache, mutationResult) => {
+      update: (cache) => {
         let { developers } = cache.readQuery({ query: GET_DEVELOPERS });
         cache.writeQuery({
           query: GET_DEVELOPERS,
@@ -32,7 +32,7 @@ const AddDeveloper = () => {
   };
 
   return (
-    <div className={styles.addDeveloper}>
+    <div className={styles.addDeveloper} data-testid='add-developer'>
       <div className={styles.formItem}>
         <input
           value={name}
@@ -52,7 +52,7 @@ const AddDeveloper = () => {
       <button
         className={styles.btnAction}
         onClick={addDeveloper}
-        data-testid='add-developer'
+        data-testid='add-developer-btn'
       >
         Add
       </button>
