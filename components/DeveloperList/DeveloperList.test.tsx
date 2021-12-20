@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { ApolloProvider } from '@apollo/client';
-import { render, waitFor } from '@testing-library/react';
+import { render } from '@testing-library/react';
 
 import apolloClient from '../../lib/apollo/apollo';
 import { DeveloperList } from '../';
@@ -13,11 +13,6 @@ describe('DeveloperList', () => {
         <DeveloperList />
       </ApolloProvider>
     );
-
-    // await waitFor(() =>
-    //   expect(getByTestId('developer-list')).toBeInTheDocument()
-    // );
-
     await findByTestId('developer-list');
 
     const listItems = getAllByTestId('developer-list-item');

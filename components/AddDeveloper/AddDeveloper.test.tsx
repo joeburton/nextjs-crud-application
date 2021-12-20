@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { ApolloProvider } from '@apollo/client';
-import { render, waitFor, within } from '@testing-library/react';
+import { render, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import apolloClient from '../../lib/apollo/apollo';
