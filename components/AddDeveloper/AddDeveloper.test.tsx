@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { ApolloProvider } from '@apollo/client';
-import { render, waitFor } from '@testing-library/react';
+import { render, waitFor, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import apolloClient from '../../lib/apollo/apollo';
@@ -25,7 +25,7 @@ describe('AddDeveloper', () => {
   });
 
   it('should add a new developer', async () => {
-    const { getByTestId, getAllByTestId, debug } = render(
+    const { getByTestId, getAllByTestId } = render(
       <ApolloProvider client={apolloClient}>
         <AddDeveloper />
         <DeveloperList />
@@ -52,11 +52,14 @@ describe('AddDeveloper', () => {
     );
 
     await waitFor(() =>
-      expect(getAllByTestId('developer-list-item').length).toEqual(3)
+      expect(getAllByTestId('developer-list-item')).toHaveLength(3)
+    );
+
+    expect(getAllByTestId('developer-list-item')[2]).toHaveTextContent(
+      'James Brown'
     );
 
     // @todo look at using aria / getByRole getAllByRole accessibility.
     // @todo look at (within)
-    // debug();
   });
 });

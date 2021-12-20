@@ -11,7 +11,7 @@ const ADD_DEVELOPER = gql`
 `;
 
 const DELETE_DEVELOPER = gql`
-  mutation ($id: String) {
+  mutation DeleteDeveloper($id: String) {
     deleteDeveloper(id: $id) {
       id
       name
@@ -21,7 +21,7 @@ const DELETE_DEVELOPER = gql`
 `;
 
 const UPDATE_DEVELOPER = gql`
-  mutation ($id: String, $name: String, $skills: String) {
+  mutation UpdateDeveloper($id: String, $name: String, $skills: String) {
     editDeveloper(id: $id, name: $name, skills: $skills) {
       id
       name

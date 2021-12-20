@@ -42,7 +42,10 @@ const DeveloperListItem = ({ id, name, skills }) => {
         />
       )}
       {!updateActive && (
-        <div className={styles.detailsContainer}>
+        <div
+          className={styles.detailsContainer}
+          data-testid='developer-details'
+        >
           <div className={styles.details}>
             Developer name: {name}, Skills: {skills}
           </div>
@@ -50,12 +53,14 @@ const DeveloperListItem = ({ id, name, skills }) => {
             <button
               className={styles.btnPrimary}
               onClick={() => setUpdateActive(true)}
+              data-testid='edit-developer-btn'
             >
               Edit
             </button>
             <button
               className={styles.btnDanger}
               onClick={deleteDeveloperFromDatabase}
+              data-testid='delete-developer-btn'
             >
               Delete
             </button>

@@ -1,7 +1,7 @@
 import { graphql } from 'msw';
 
 export const handlers = [
-  graphql.mutation(`AddDeveloper`, (req, res, ctx) => {
+  graphql.mutation(`AddDeveloper`, (_req, res, ctx) => {
     return res(
       ctx.data({
         addDeveloper: [
@@ -14,7 +14,7 @@ export const handlers = [
       })
     );
   }),
-  graphql.query(`GetDevelopers`, (req, res, ctx) => {
+  graphql.query(`GetDevelopers`, (_req, res, ctx) => {
     return res(
       ctx.data({
         developers: [
@@ -23,6 +23,19 @@ export const handlers = [
             name: 'Joe Burton',
             skills: 'React, CSS, HTML',
           },
+          {
+            id: 'fd66e955-10e9-4762-8847-14fbdc80e38b',
+            name: 'Jill Hill',
+            skills: 'C#, SQL',
+          },
+        ],
+      })
+    );
+  }),
+  graphql.mutation(`DeleteDeveloper`, (_req, res, ctx) => {
+    return res(
+      ctx.data({
+        deleteDeveloper: [
           {
             id: 'fd66e955-10e9-4762-8847-14fbdc80e38b',
             name: 'Jill Hill',

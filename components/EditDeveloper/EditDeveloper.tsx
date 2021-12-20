@@ -38,7 +38,7 @@ const EditDeveloper = ({ id, name, skills, onSuccess }) => {
   };
 
   return (
-    <div className={styles.editDeveloper}>
+    <div className={styles.editDeveloper} data-testid='edit-developer'>
       <div className={styles.formItem}>
         <input value={newName} onChange={(e) => setNewName(e.target.value)} />
       </div>
