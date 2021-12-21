@@ -34,7 +34,27 @@ jobs:
       - name: Build
         run: npm run build
 
-        env:
+      - name: Deploy to Staging 
+        id: deploy-vercel-staging
+        uses: amondnet/vercel-action@v20
+        with:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+          scope: ${{ secrets.VERCEL_ORG_ID }} 
+
+      - name: Run Tests Against Vercel 
+        env:
+          VERCEL_URL: ${{ steps.deploy-vercel-staging.outputs.preview-url }}
+        run: npm run test 
+
+    - name: Deploy to Production 
+      uses: amondnet/vercel-action@v20
+      id: deploy-vercel-production
+      if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+      with:
+        VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+        VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID_TL_ENGINE }}
+        vercel-args: '--prod'
+        scope: ${{ secrets.VERCEL_ORG_ID }} 
