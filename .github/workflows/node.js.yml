@@ -29,7 +29,7 @@ jobs:
         run: npm install
 
       - name: Run the tests
-        run: npm test:push
+        run: npm test
 
       - name: Build
         run: npm run build

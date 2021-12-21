@@ -6,8 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "test": "jest --watch --verbose",
+    "test": "jest",
     "test:push": "jest",
+    "test:watch": "jest --watch --verbose",
     "coverage": "jest --collect-coverage"
   },
   "dependencies": {
