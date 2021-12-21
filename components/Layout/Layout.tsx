@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 import styles from './Layout.module.css';
 
 const Layout = ({ children }) => {
@@ -23,7 +25,10 @@ const Layout = ({ children }) => {
               target='_blank'
             >
               GitHub
-            </a>
+            </a>{' '}
+            <Link href='/about'>
+              <a>About</a>
+            </Link>
           </p>
         </footer>
       </div>
