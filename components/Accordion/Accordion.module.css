@@ -1,0 +1,27 @@
+.accordion {
+  list-style: none;
+  flex-flow: column;
+  margin-bottom: 10px;
+}
+
+.accordion li {
+  background: lightcyan;
+  font-size: 14px;
+  margin-bottom: 2px;
+}
+
+.accordion li .title {
+  border-bottom: 1px solid lightgrey;
+  cursor: pointer;
+  display: flex;
+  padding: 5px;
+}
+
+.accordion li .description {
+  display: flex;
+  padding: 5px;
+}
+
+.accordion li .collapsed {
+  display: none;
+}
