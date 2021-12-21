@@ -16,6 +16,7 @@ const AddDeveloper = () => {
     const unique_id = uuid();
     const developer = { id: unique_id, name: name, skills: skills };
 
+    console.log(developer);
     addTodo({
       variables: developer,
       update: (cache) => {
