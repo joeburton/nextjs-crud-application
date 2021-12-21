@@ -1,4 +1,4 @@
-name: Deploy Torchlight Engine
+name: Deploy CRUD Demo App
 on:
   push:
     branches: [master]
