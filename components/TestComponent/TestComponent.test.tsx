@@ -3,10 +3,10 @@ import TestComponent from './TestComponent';
 
 test('it should render a test component with the correct props', () => {
   const { getByTestId } = render(
-    <TestComponent name='Joe Burton' dob='04/10/1979' gender='male' />
+    <TestComponent name='Force build' dob='04/10/1979' gender='male' />
   );
   const details = getByTestId('personal-details');
 
-  expect(details).toHaveTextContent(/^Joe Burton, 04\/10\/1979, male$/);
+  expect(details).toHaveTextContent(/^Force build, 04\/10\/1979, male$/);
   expect(details).toBeInTheDocument();
 });

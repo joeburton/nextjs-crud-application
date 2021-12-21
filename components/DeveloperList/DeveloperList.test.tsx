@@ -8,7 +8,7 @@ import { DeveloperList } from '../';
 
 describe('DeveloperList', () => {
   it('should render the DeveloperList Component', async () => {
-    const { getAllByTestId, getByTestId, findByTestId } = render(
+    const { getAllByTestId, findByTestId } = render(
       <ApolloProvider client={apolloClient}>
         <DeveloperList />
       </ApolloProvider>
