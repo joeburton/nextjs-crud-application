@@ -1,60 +1,53 @@
-# This workflow will do a clean install of node dependencies, cache/restore them, build the source code and run tests across different versions of node
-# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
-
-name: CI/CD
-
-on:
-  push:
-    branches: [master]
-  pull_request:
-    branches: [master]
-
+name: Deploy Torchlight Engine
+on: [push, pull_request]
 jobs:
-  build:
+  vercel:
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [14.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-
     steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Cache Dependencies
+        uses: actions/cache@v1
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: ${{ runner.os }}-node-
+
+      - name: Setup Node 14
         uses: actions/setup-node@v2
         with:
-          node-version: ${{ matrix.node-version }}
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Run the tests
-        run: npm test
+          node-version: '14'
 
       - name: Build
-        run: npm run build
+        run: |
+          yarn install --frozen-lockfile
+          npm run bundle
 
-      - name: Deploy to Staging 
+      - name: Run Tests Locally
+        run: npm run test
+
+      - name: Deploy to Staging
         id: deploy-vercel-staging
         uses: amondnet/vercel-action@v20
         with:
-          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
-          scope: ${{ secrets.VERCEL_ORG_ID }} 
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID_TL_ENGINE }}
+          scope: ${{ secrets.VERCEL_ORG_ID }}
 
-      - name: Run Tests Against Vercel 
+      - name: Run Tests Against Vercel
         env:
           VERCEL_URL: ${{ steps.deploy-vercel-staging.outputs.preview-url }}
-        run: npm run test 
+        run: npm run test
 
-    - name: Deploy to Production 
-      uses: amondnet/vercel-action@v20
-      id: deploy-vercel-production
-      if: github.event_name == 'push' && github.ref == 'refs/heads/master'
-      with:
-        VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-        VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-        VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID_TL_ENGINE }}
-        vercel-args: '--prod'
-        scope: ${{ secrets.VERCEL_ORG_ID }} 
+      - name: Deploy to Production
+        uses: amondnet/vercel-action@v20
+        id: deploy-vercel-production
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID_TL_ENGINE }}
+          vercel-args: '--prod'
+          scope: ${{ secrets.VERCEL_ORG_ID }}
