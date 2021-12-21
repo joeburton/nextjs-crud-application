@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 import styles from './Layout.module.css';
 
 const Layout = ({ children }) => {
@@ -22,7 +24,10 @@ const Layout = ({ children }) => {
               href='https://github.com/joeburton/nextjs-crud-application'
               target='_blank'
             >
-              GitHub
+              GitHub{' '}
+              <Link href='/about'>
+                <a>About</a>
+              </Link>
             </a>
           </p>
         </footer>
