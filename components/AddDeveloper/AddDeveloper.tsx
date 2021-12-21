@@ -4,7 +4,6 @@ import { v4 as uuid } from 'uuid';
 import { useMutation } from '@apollo/client';
 import { ADD_DEVELOPER } from '../../lib/apollo/mutations';
 import { GET_DEVELOPERS } from '../../lib/apollo/queries';
-
 import styles from './AddDeveloper.module.css';
 
 const AddDeveloper = () => {
