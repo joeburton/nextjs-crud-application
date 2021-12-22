@@ -27,11 +27,25 @@ jobs:
         with:
           node-version: '14'
 
+      - name: Cache Cypress binary
+        uses: actions/cache@v1
+        with:
+          path: ~/.cache/Cypress
+          key: cypress-${{ runner.os }}-cypress-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            cypress-${{ runner.os }}-cypress-
+
       - name: Install dependencies
         run: npm install
 
       - name: Run Tests Locally
         run: npm run test
+
+      - name: Cypress run
+        uses: cypress-io/github-action@v2
+        with:
+          build: npm run build
+          start: npm start
 
       - name: Deploy to Staging
         id: deploy-vercel-staging

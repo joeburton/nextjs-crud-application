@@ -10,7 +10,8 @@
     "test:push": "jest",
     "test:watch": "jest --watch --verbose",
     "coverage": "jest --collect-coverage",
-    "cypress": "cypress open"
+    "cypress": "cypress open",
+    "cypress:headless": "cypress run"
   },
   "dependencies": {
     "@apollo/client": "^3.5.6",
