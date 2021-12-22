@@ -6,10 +6,11 @@ const Layout = ({ children }) => {
   return (
     <main className={styles.main}>
       <div className={styles.mainContent}>
-        <footer>
+        <header>
           <h1>Developer Details</h1>
-        </footer>
+        </header>
         {children}
+
         <div className={styles.content}>
           <p>
             Basic server side in memory CRUD application built using React.js,
@@ -24,11 +25,11 @@ const Layout = ({ children }) => {
               href='https://github.com/joeburton/nextjs-crud-application'
               target='_blank'
             >
-              GitHub{' '}
-              <Link href='/about'>
-                <a>About</a>
-              </Link>
-            </a>
+              GitHub
+            </a>{' '}
+            <Link href='/about'>
+              <a>About</a>
+            </Link>
           </p>
         </footer>
       </div>

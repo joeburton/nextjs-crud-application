@@ -14,3 +14,9 @@ a {
 * {
   box-sizing: border-box;
 }
+
+h2 {
+  color: darkslategrey;
+  font-size: 16px;
+  font-weight: normal;
+}

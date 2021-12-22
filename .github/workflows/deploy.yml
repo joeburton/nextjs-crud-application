@@ -33,6 +33,12 @@ jobs:
       - name: Run Tests Locally
         run: npm run test
 
+      - name: Cypress run
+        uses: cypress-io/github-action@v2
+        with:
+          build: npm run build
+          start: npm start
+
       - name: Deploy to Staging
         id: deploy-vercel-staging
         uses: amondnet/vercel-action@v20
