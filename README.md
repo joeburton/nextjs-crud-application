@@ -11,6 +11,7 @@
 <img width="740" alt="developer-details" src="https://user-images.githubusercontent.com/1738659/146037052-2a602b31-7bee-4233-bc91-17219ac67b69.png">
 <br />
 
+### The pipeline/ build is managed through GitHub actions .github/workflows/deploy.yml [View Action](https://github.com/joeburton/nextjs-crud-application/blob/minor-refactor/.github/workflows/deploy.yml)
 
 ### Built With
 
