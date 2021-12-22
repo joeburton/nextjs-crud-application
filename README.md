@@ -1,6 +1,6 @@
 # Developer Details CRUD Application
 
-## Basic in memory CRUD application built using React.js, Next.js, Apollo and GraphQL.
+## In memory CRUD application built using React.js, Next.js, Apollo and GraphQL.
 
 <br />
 
@@ -12,7 +12,21 @@
 <br />
 <br />
 
-> The pipeline/ build is managed through GitHub actions .github/workflows/deploy.yml [View Action](https://github.com/joeburton/nextjs-crud-application/blob/minor-refactor/.github/workflows/deploy.yml)
+> The pipeline/ build is managed through GitHub workflows/actions .github/workflows/deploy.yml [View Action](https://github.com/joeburton/nextjs-crud-application/blob/minor-refactor/.github/workflows/deploy.yml)
+
+<br />
+
+### Tech tasks
+
+- &#9745; Add unit tests for front-end components
+- &#9745; Add cypress end-to-end tests
+- &#9745; Add pipeline to deploy to staging and production using .github/workflows
+- &#9745; Run unit tests and end-to-end-tests when pushing to master or creating pull_requests pointing to master .github/workflows
+- &#9746; Add tests for next.js/pages
+- &#9746; Add tests for graphql API
+- &#9746; Make components/ pages accessible
+- &#9746; Connect to database rather than in memory data
+- &#9746; Add next lint - check build for details
 
 <br />
 
