@@ -1,8 +1,8 @@
 name: Deploy CRUD Demo App
-on: 
+on:
   # Trigger the workflow on push or pull request,
   # but only for the main branch
-push:
+  push:
     branches:
       - master
   pull_request:
