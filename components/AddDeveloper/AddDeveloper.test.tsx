@@ -4,7 +4,7 @@ import { ApolloProvider } from '@apollo/client';
 import { render, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import apolloClient from '../../lib/apollo/apollo';
+import apolloClient from '../../lib/apollo/apolloClient';
 import { AddDeveloper, DeveloperList } from '../';
 
 describe('AddDeveloper', () => {
