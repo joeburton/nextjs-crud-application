@@ -3,7 +3,7 @@ import React from 'react';
 import { ApolloProvider } from '@apollo/client';
 import { render } from '@testing-library/react';
 
-import apolloClient from '../../lib/apollo/apollo';
+import apolloClient from '../../lib/apollo/apolloClient';
 import { DeveloperList } from '../';
 
 describe('DeveloperList', () => {

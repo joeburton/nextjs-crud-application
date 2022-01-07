@@ -24,6 +24,7 @@ const Layout = ({ children }) => {
             <a
               href='https://github.com/joeburton/nextjs-crud-application'
               target='_blank'
+              rel='noreferrer'
             >
               GitHub
             </a>{' '}
