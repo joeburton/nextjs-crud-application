@@ -21,6 +21,12 @@ let developers = [
   },
 ];
 
+let notes = [
+  { id: '1', title: 'first step', note: 'install dependencies' },
+  { id: '2', title: 'second step', note: 'run application' },
+  { id: '3', title: 'third step', note: 'refactor code' },
+];
+
 const typeDefs = gql`
   type Developer {
     id: String
@@ -28,8 +34,20 @@ const typeDefs = gql`
     skills: String
   }
 
+  type Notes {
+    id: String
+  }
+
+  type Note {
+    id: String
+    title: String
+    notes: String
+  }
+
   type Query {
     developers: [Developer]
+    notes: [Notes]
+    note(id: String): Note
   }
 
   type Mutation {
@@ -42,6 +60,10 @@ const typeDefs = gql`
 const resolvers = {
   Query: {
     developers: () => developers,
+    notes: () => notes,
+    note: (_root, args) => {
+      return notes.find((note) => note.id === args.id);
+    },
   },
 
   Mutation: {
