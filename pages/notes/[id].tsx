@@ -1,7 +1,7 @@
 import { GET_NOTES, GET_NOTE } from '../../lib/apollo/queries';
 import apolloClientNotes from '../../lib/apollo/apolloClientNotes';
 
-const Posts = ({ note }) => {
+const Notes = ({ note }) => {
   console.log(note);
   {
   }
@@ -12,7 +12,7 @@ const Posts = ({ note }) => {
   );
 };
 
-export default Posts;
+export default Notes;
 
 export async function getStaticPaths() {
   const { data } = await apolloClientNotes.query({
