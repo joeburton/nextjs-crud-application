@@ -2,8 +2,18 @@ import Link from 'next/link';
 import Head from 'next/head';
 
 import styles from './Layout.module.css';
+import { useEffect, useState } from 'react';
 
 const Layout = ({ children }) => {
+  const [pageTitle, setPageTitle] = useState('');
+
+  useEffect(() => {
+    const pathname = window?.location.pathname;
+    const title = pathname === '/' ? 'Developer Details' : pathname;
+
+    setPageTitle(title);
+  }, []);
+
   return (
     <>
       <Head>
@@ -16,7 +26,7 @@ const Layout = ({ children }) => {
       <main className={styles.main}>
         <div className={styles.mainContent}>
           <header>
-            <h1>Developer Details</h1>
+            <h1>{pageTitle}</h1>
           </header>
           {children}
 
