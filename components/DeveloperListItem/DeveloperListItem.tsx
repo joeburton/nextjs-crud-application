@@ -6,7 +6,13 @@ import { DELETE_DEVELOPER } from '../../lib/apollo/mutations';
 
 import styles from './DeveloperListItem.module.css';
 
-const DeveloperListItem = ({ id, name, skills }) => {
+interface ListItem {
+  id: string;
+  name: string;
+  skills: string;
+}
+
+const DeveloperListItem = ({ id, name, skills }: ListItem) => {
   const [updateActive, setUpdateActive] = useState(false);
 
   const updateCache = (cache) => {
