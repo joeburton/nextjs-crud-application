@@ -1,3 +1,4 @@
+import { Accordion } from '../components';
 import { ReactChildrenList } from '../components/ReactChildrenList';
 import { TypedList } from '../components/TypedList';
 
@@ -22,6 +23,12 @@ export default function About() {
           <>item 2</>
           <>item 3</>
         </ReactChildrenList>
+        <Accordion
+          items={[
+            { title: 'Item 1', description: 'description 1' },
+            { title: 'Item 2', description: 'description 2' },
+          ]}
+        />
       </>
     </div>
   );
