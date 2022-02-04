@@ -14,9 +14,9 @@ const TypedList = <T extends AbstractItem>(props: PropsType<T>) => {
     : props.items;
   return (
     <ul>
-      {items.map((item) => {
-        return <li key={item.id}>{props.renderer(item)}</li>;
-      })}
+      {items.map((item) => (
+        <li key={item.id}>{props.renderer(item)}</li>
+      ))}
     </ul>
   );
 };
